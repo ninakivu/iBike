@@ -15,7 +15,7 @@ mongoose.connect(MONGODB_URI, (err) => {
 })
 
 app.use(express.static(`${__dirname}/client/build`))
-app.user(logger('dev'))
+app.use(logger('dev'))
 app.use(bodyParser.json())
 
 app.get('/api', (req, res) => {

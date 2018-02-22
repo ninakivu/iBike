@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
+import NavBar from './components/NavBar/NavBar.js'
 
 //test API call:
 axios({method: 'get', url: '/api'})
@@ -10,12 +11,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to iBike</h1>
+          <NavBar />
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, create a profile and start biking.
         </p>
+
       </div>
     );
   }
