@@ -8,6 +8,8 @@ const
   MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/ibike'
   PORT = process.env.PORT || 3001
   usersRoutes = require('./routes/users.js')
+  tripsRoutes = require('./routes/trips.js')
+  
 
 // connect ot db:
 mongoose.connect(MONGODB_URI, (err) => {
@@ -22,7 +24,13 @@ app.get('/api', (req, res) => {
   res.json({message: "api root."})
 })
 
-app.use('/api/users', usersRoutes)
+app.get('/api/users', (req, res) => {
+  res.json(users)
+})
+
+
+app.use('/users', usersRoutes)
+app.use('/trips', usersRoutes)
 
 app.use('*', (req, res) => {
   res.sendFile(`${__dirname}/client/builf/index.html`)

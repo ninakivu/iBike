@@ -8,7 +8,7 @@ module.exports = {
     })
   },
 
-  // get opne user
+  // get one user
   show: (req, res) => {
     console.log("Current User:")
     console.log(req.user)
@@ -38,7 +38,7 @@ module.exports = {
   // delete an existing user
   destroy: (req, res) => {
     User.findByIdAndRemove(req.params.id, (err, user) => {
-      res.json({success: treu, message: "User deleted.", user})
+      res.json({success: true, message: "User deleted.", user})
     })
   },
 
