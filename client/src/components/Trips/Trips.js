@@ -2,18 +2,27 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 class Trips extends React.Component {
+
+  addATrip() {
+    console.log("added trip.")
+  }
+
   render() {
     const { trips } = this.props
+    console.log(trips)
     return (
-      <ul>
-        {trips.map((t) => {
-          return (
-            <li key={t._id}>
-              <Link to={`/trips/${t._id}`}> {t.name} </Link>
-            </li>
-          )
-        })}
-      </ul>
+      <div>
+        <ul>
+          {trips.map((t) => {
+            return (
+              <li key={t._id}>
+                <Link to={`/trips/${t._id}`}> {t.name} </Link>
+              </li>
+            )
+          })}
+        </ul>
+        <button onClick={this.addATrip}>Add a trip</button>
+      </div>
     )
   }
 }

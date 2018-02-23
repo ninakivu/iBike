@@ -30,7 +30,7 @@ app.get('/api/users', (req, res) => {
 
 
 app.use('/users', usersRoutes)
-app.use('/trips', usersRoutes)
+app.use('/trips', tripsRoutes)
 
 app.use('*', (req, res) => {
   res.sendFile(`${__dirname}/client/builf/index.html`)

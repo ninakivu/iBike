@@ -1,6 +1,6 @@
 const
   express = require('express')
-  tripsRouter = new express.Router()
+  tripsRouter = express.Router()
   tripsCtrl = require('../controllers/trips.js')
 
 tripsRouter.route('/')

@@ -6,9 +6,12 @@ class NavBar extends React.Component {
     return (
       <div className="navbar">
         <Link to={'/'} > Home </Link>
-        <Link to={'/users/:id'}> Profile </Link>
+        <Link to={`/users/${this.props.currentUser && this.props.currentUser._id}`}> Profile </Link>
         <Link to={'/users'}> BikeLikers </Link>
+        <Link to={'/trips'}> Trips </Link>
         <Link to={'/login'}> Sign In / Logout </Link>
+        
+        
       </div>
     )
   }

@@ -1,7 +1,9 @@
 const
   express = require('express')
-  usersRouter = new express.Router()
+  usersRouter = express.Router()
   usersCtrl = require('../controllers/users.js')
+  verifyToken = require('../serverAuth.js') // import the verifyToken function
+
 
 usersRouter.route('/')
   .get(usersCtrl.index)
@@ -9,6 +11,7 @@ usersRouter.route('/')
 
 usersRouter.post('/authenticate', usersCtrl.authenticate)
 
+usersRouter.use(verifyToken.verifyToken) //All the routes after this point will need a verified token
 usersRouter.route('/:id')
   .get(usersCtrl.show)
   .patch(usersCtrl.update)
