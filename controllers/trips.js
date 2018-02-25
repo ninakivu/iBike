@@ -21,7 +21,7 @@ module.exports = {
   create: (req, res) => {
     Trip.create(req.body, (err, trip) => {
       if(err) return res.json({success: false, code: err.code})
-      res.json({success: true, message: "Trip created."})
+      res.json({success: true, message: "Trip created.", trip})
     })
   },
 

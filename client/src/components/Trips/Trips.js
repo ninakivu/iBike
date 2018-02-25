@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom'
 
 class Trips extends React.Component {
 
-  addATrip() {
-    console.log("added trip.")
-  }
 
   render() {
     const { trips } = this.props
@@ -21,7 +18,6 @@ class Trips extends React.Component {
             )
           })}
         </ul>
-        <button onClick={this.addATrip}>Add a trip</button>
       </div>
     )
   }

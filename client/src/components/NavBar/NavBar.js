@@ -3,13 +3,24 @@ import { Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
   render() {
+    const { currentUser } = this.props
     return (
       <div className="navbar">
         <Link to={'/'} > Home </Link>
-        <Link to={`/users/${this.props.currentUser && this.props.currentUser._id}`}> Profile </Link>
-        <Link to={'/users'}> BikeLikers </Link>
+        <Link to={`/users/${currentUser && currentUser._id}`}> Profile </Link>
+        <Link to={'/users'}> Users </Link>
         <Link to={'/trips'}> Trips </Link>
-        <Link to={'/login'}> Sign In / Logout </Link>
+        {currentUser
+          ? (
+            <Link to={'/logout'}> Logout </Link>
+          )
+          : (
+            <span>
+              <Link to={'/login'}> Sign In </Link>
+              <Link to={'/signup'}> Sign Up </Link>
+            </span>
+          )
+        }
         
         
       </div>

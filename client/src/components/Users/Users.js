@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 class Users extends React.Component {
   render() {
     const { users } = this.props
-    console.log(users)
     return (
       <ul>
         {users.map((u) => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import clientAuth from '../../clientAuth';
+import clientAuth from '../clientAuth.js'
 
 class LoginForm extends React.Component {
   constructor(props) {
