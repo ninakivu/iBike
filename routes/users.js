@@ -9,6 +9,7 @@ usersRouter.route('/')
   .get(usersCtrl.index)
   .post(usersCtrl.create)
 
+
 usersRouter.post('/authenticate', usersCtrl.authenticate)
 
 usersRouter.use(verifyToken.verifyToken) //All the routes after this point will need a verified token

@@ -87,7 +87,7 @@ class App extends Component {
         {currentUser !== [] ? <TripButton label={showTripForm ? "Cancel Trip" : " New Trip"} onClick={this.toggleTrip.bind(this)} /> : null }
 
         { showTripForm ? <AddTrip onSubmit={this.addTrip.bind(this)} /> : null }
-
+       
         <Switch>
 
           <Route path="/login" render={(props) => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
 
 class Trips extends React.Component {
-
 
   render() {
     const { trips } = this.props
