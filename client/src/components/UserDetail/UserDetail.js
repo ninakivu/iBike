@@ -14,6 +14,8 @@ class UserDetail extends React.Component {
         )
         : <h1>Loading...</h1>
       }
+      <button>Edit Profile</button>
+      <button>Delete Profile</button>
       </div>
     )
   }

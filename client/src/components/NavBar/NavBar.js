@@ -5,24 +5,38 @@ class NavBar extends React.Component {
   render() {
     const { currentUser } = this.props
     return (
-      <div className="navbar">
-        <Link to={'/'} > Home </Link>
-        <Link to={`/users/${currentUser && currentUser._id}`}> Profile </Link>
-        <Link to={'/users'}> Users </Link>
-        <Link to={'/trips'}> Trips </Link>
-        {currentUser
-          ? (
-            <Link to={'/logout'}> Logout </Link>
-          )
-          : (
-            <span>
-              <Link to={'/login'}> Sign In </Link>
-              <Link to={'/signup'}> Sign Up </Link>
-            </span>
-          )
-        }
-        
-        
+      <div className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link to={'/'} className="nav-link"> Home <span className="sr-only">(current)</span></Link>
+            </li>
+            <li className="nav-item">
+              <Link to={`/users/${currentUser && currentUser._id}`} className="nav-link">Profile </Link>
+            </li>
+            <li className="nav-item">
+            <Link to={'/users'} className="nav-link">Users </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={'/trips'} className="nav-link">Trips</Link>
+            </li>
+            <div className="ml-auto">
+              {currentUser
+                ? (
+                  <li className="nav-item">
+                    <Link to={'/logout'} className="nav-link">Logout</Link>
+                  </li>
+                )
+                : (
+                  <span>
+                    <Link to={'/login'} className="nav-link"> Sign In </Link>
+                    <Link to={'/signup'} className="nav-link"> Sign Up </Link>
+                  </span>
+                )
+              }
+            </div>
+          </ul>
+        </div>
       </div>
     )
   }
