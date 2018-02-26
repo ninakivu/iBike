@@ -17,7 +17,7 @@ class AddTrip extends Component {
       name: this.refs.name.value,
       start: this.refs.start.value,
       end: this.refs.end.value,
-      createdBy: this.props.c
+      // createdBy: this.props.createdBy.value
     }
     this.props.onSubmit(fields)
   }

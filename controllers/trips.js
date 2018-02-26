@@ -27,10 +27,12 @@ module.exports = {
 
   // update an exisitng trip:
   update: (req, res) => {
+    console.log("this is the body", req.body)
     Trip.findById(req.params.id, (err, trip) => {
       Object.assign(trip, req.body)
       trip.save((err, updatedTrip) => {
-        res.json({success: true, message: "Trip updated.", trip})
+        console.log(err)
+        res.json({success: true, message: "Trip updated.", updatedTrip})
       })
     })
   },

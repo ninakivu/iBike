@@ -121,10 +121,7 @@ class App extends Component {
 
           <Route exact path="/trips/:id" render={(routeProps) => {
             const tripId = routeProps.match.params.id
-            const trip = trips.find((t) => {
-              return t._id === tripId
-            })
-            return <TripDetail trip={trip} />
+            return <TripDetail tripId={tripId} />
           }} />
 
           <Route exact path="/" render={(routeProps) => {
