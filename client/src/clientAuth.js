@@ -55,10 +55,15 @@ function logOut() {
 	return true
 }
 
+function deleteTrip(id) {
+	return clientAuth({method: 'delete', url: `/trips/${id}`})
+}
+
 
 export default {
 	getCurrentUser,
 	logIn,
 	signUp,
-	logOut
+	logOut,
+	deleteTrip
 }

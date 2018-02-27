@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import EditTrip from '../EditTrip/EditTrip'
 import Map from '../Map/Map.js'
+import clientAuth from '../../clientAuth.js'
 
 class TripDetail extends React.Component {
 
@@ -36,6 +37,15 @@ class TripDetail extends React.Component {
     })
   }
 
+  deleteTrip() {
+    clientAuth.deleteTrip(this.props.tripId).then(res => {
+      if(res.data.success) {
+        this.props.history.push("/trips")
+        this.props.onDeleteSuccess(this.props.tripId)
+      }
+    })
+  }
+
   render() {
     const { trip } = this.state
     return (
@@ -52,7 +62,7 @@ class TripDetail extends React.Component {
         </div>
         <div className="button-container">
           <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
-          <button onClick={this.deleteTrip} className="btn btn-primary">Delete Trip</button>
+          <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>
         </div>
         <Map />
         {this.state.show && <EditTrip trip={trip} onSubmit={this.onSubmit} />}  

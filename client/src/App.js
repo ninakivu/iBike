@@ -62,10 +62,8 @@ class App extends Component {
     axios({method: 'post', url: '/trips', data: fields})
       .then((res) => {
         console.log(res.data)
-        var moreTrips = this.state.trips.slice() 
-        moreTrips.push(res.data.trip)
         this.setState({
-          trips: moreTrips
+          trips: [...this.state.trips, res.data.newTrip]
         })
       })
   }
@@ -74,6 +72,14 @@ class App extends Component {
     console.log("started to bike.")
     this.setState({
       showTripForm: !this.state.showTripForm
+    })
+  }
+
+  onTripDeleteSuccess(deletedTripId) {
+    this.setState({
+      trips: this.state.trips.filter(t => {
+        return t._id !== deletedTripId
+      })
     })
   }
 
@@ -121,7 +127,13 @@ class App extends Component {
 
           <Route exact path="/trips/:id" render={(routeProps) => {
             const tripId = routeProps.match.params.id
-            return <TripDetail tripId={tripId} />
+            return (
+              <TripDetail
+                tripId={tripId}
+                history={routeProps.history}
+                onDeleteSuccess={this.onTripDeleteSuccess.bind(this)}
+              />
+            )
           }} />
 
           <Route exact path="/" render={(routeProps) => {
