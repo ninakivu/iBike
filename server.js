@@ -21,12 +21,12 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 
 app.get('/api', (req, res) => {
-  res.json({message: "api root."})
+  res.json({message: "API root."})
 })
 
-app.get('/api/users', (req, res) => {
-  res.json(users)
-})
+// app.get('/api/users', (req, res) => {
+//   res.json(users)
+// })
 
 app.use('/users', usersRoutes)
 app.use('/trips', tripsRoutes)

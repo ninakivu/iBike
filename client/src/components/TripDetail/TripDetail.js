@@ -40,16 +40,22 @@ class TripDetail extends React.Component {
     const { trip } = this.state
     return (
       <div className="container">
-        <h1>{trip.name}</h1>
-        <h2>{trip.start}</h2>
-        <h2>{trip.end}</h2>
+        <div className="trip-container">
+          <h1>{trip.name}</h1>
+          <h4>From: {trip.start}</h4>
+          <h4>To: {trip.end}</h4>
+          <h4>Distance: "from a to b" miles.</h4>
+          <h4>Gas saved: "distance" * 1/23 gallons.</h4>
+          <h4>Money saved: "gas saved * gas price" dollars.</h4>
+          <h4>CO2 saved: "distance" * 411 grams.</h4>
+          <h4>Calories burned: "distance" * 31 kcal</h4>
+        </div>
+        <div className="button-container">
+          <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
+          <button onClick={this.deleteTrip} className="btn btn-primary">Delete Trip</button>
+        </div>
         <Map />
-
-        <button onClick={this.editTrip.bind(this)}>Edit Trip</button>
-        <button onClick={this.deleteTrip}>Delete Trip</button>
-        {this.state.show && <EditTrip trip={trip} onSubmit={this.onSubmit} />}
-
-        
+        {this.state.show && <EditTrip trip={trip} onSubmit={this.onSubmit} />}  
       </div>
     )
   }

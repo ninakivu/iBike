@@ -30,3 +30,43 @@
 .google-map {
   height: 400px
 }
+
+.card {
+  display: inline-flex
+}
+
+.users {
+  width: 100px;
+  height: 100px;
+  margin-top: 52px;
+  margin-right: 26px;
+  display: inline-flex;
+  border: 2px solid black;
+  border-radius: 75%
+}
+
+.usersname {
+  text-align: center
+}
+
+.card {
+  margin: 20px;
+  border-radius: 5%
+}
+
+.t-container {
+  display: inline-flex;
+}
+
+.jumbotron {
+  background: url("assets/bike-photos/9.jpg") no-repeat center center;
+  background-size: 100%;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    color: #FFF;    
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    
+}

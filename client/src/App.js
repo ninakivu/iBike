@@ -80,11 +80,11 @@ class App extends Component {
   render() {
     const { loggedIn, currentUser, users, trips, showTripForm } = this.state
     return (
-      <div className="App container">
+      <div className="container">
       
         <NavBar currentUser={ currentUser }/>
         
-        {currentUser !== [] ? <TripButton label={showTripForm ? "Cancel Trip" : " New Trip"} onClick={this.toggleTrip.bind(this)} /> : null }
+        {currentUser !== [] ? <TripButton label={showTripForm ? "Cancel Trip" : "Start a New Trip"} onClick={this.toggleTrip.bind(this)} /> : null }
 
         { showTripForm ? <AddTrip onSubmit={this.addTrip.bind(this)} /> : null }
        

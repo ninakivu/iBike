@@ -8,8 +8,8 @@ class Users extends React.Component {
       <ul>
         {users.map((u) => {
           return (
-            <li key={u._id}>
-              <Link to={`/users/${u._id}`}> {u.name} </Link>
+            <li className="users" key={u._id} >
+              <p className="users-name"><Link to={`/users/${u._id}`}> {u.name} </Link></p>
             </li>
           )
         })}

@@ -19,15 +19,14 @@ module.exports = {
 
   // create a new trip:
   create: (req, res) => {
-    Trip.create(req.body, (err, trip) => {
+    Trip.create({...req.body, by: req.user}, (err, newTrip) => {
       if(err) return res.json({success: false, code: err.code})
-      res.json({success: true, message: "Trip created.", trip})
+      res.json({success: true, message: "Trip created.", newTrip})
     })
   },
 
   // update an exisitng trip:
   update: (req, res) => {
-    console.log("this is the body", req.body)
     Trip.findById(req.params.id, (err, trip) => {
       Object.assign(trip, req.body)
       trip.save((err, updatedTrip) => {
