@@ -28,10 +28,18 @@ class UserDetail extends React.Component {
         </div>
 
         <h3>My Trips:</h3>
-        <ul>{user.trips.map((t) => {
-          return <li><Link to={`/trips/${t._id}`} className="btn btn-secondary">{t.name}</Link></li>
+        {user.trips.map((t) => {
+          return (
+            <div className="card" key={t._id} style={{width: 22 +"em"}}>
+              <div className="card-body"> 
+                <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
+                <p className="card-text">From: {t.start}</p>
+                <p className="card-text">To: {t.end}</p>
+                <Link to={`/trips/${t._id}`} className="btn btn-primary">More</Link>
+              </div>
+            </div>
+          )
         })}
-        </ul>
       </div>
     )
   }

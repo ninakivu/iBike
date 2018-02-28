@@ -4,29 +4,39 @@ class BikeCalc extends React.Component {
   constructor(props) {
     super(props) 
     this.state = {
-      distance: ''
+      distance: 0,
+      gas: 0,
+      money: 0,
+      CO2: 0,
+      kcal: 0
     }
   }
 
-  submitDistance(distance) {
+  updateDistance(evt) {
+    evt.preventDefault()
     console.log(this)
     this.setState({
-      distance: this.refs.distance.value
+      distance: Number(this.refs.distance.value),
+      gas: Number(this.refs.distance.value) * 1/23,
+      money: Number(this.refs.distance.value) * 0.1 ,
+      CO2: Number(this.refs.distance.value) * 411,
+      kcal: Number(this.refs.distance.value) * 31
     })
   }
-  
+
 
   render() {
-    const { distance } = this.state
+    const { distance, gas, money, CO2, kcal } = this.state
     return (
       <div>
-        <h4>Distance: { distance } 
-          <form onSubmit={this.submitDistance}<input type="text" className="input-sm" id="exampleInputDistance" ref="distance" defaultValue="0" onSubmit={this.submitDistance.bind(this)}/></form> miles.
-        </h4>
-        <h4>Gas saved: {{distance} * 1/23} gallons.</h4>
-        <h4>Money saved: "gas saved * gas price" dollars.</h4>
-        <h4>CO2 saved: "distance" * 411 grams.</h4>
-        <h4>Calories burned: "distance" * 31 kcal</h4>
+          <form onSubmit={this.updateDistance.bind(this)}>
+          <input type="text" className="form-control" id="exampleInputDistance" ref="distance" placeholder="distance"/>
+        {this.updateDistance.bind(this)}</form> 
+        <h4>Distance: { distance } miles.</h4>
+        <h4>Gas saved: {gas} gallons.</h4>
+        <h4>Money saved: {money} dollars.</h4>
+        <h4>CO2 saved: {CO2} grams.</h4>
+        <h4>Calories burned: {kcal} kcal</h4>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import EditTrip from '../EditTrip/EditTrip'
 import clientAuth from '../../clientAuth'
-
+import BikeCalc from '../BikeCalc/BikeCalc'
 
 class TripDetail extends React.Component {
 
@@ -64,10 +64,13 @@ class TripDetail extends React.Component {
                 <h1>{trip.name}</h1>
                 <h4>From: {trip.start}</h4>
                 <h4>To: {trip.end}</h4>
+                <BikeCalc />
+         
                 
                 <div className="button-container">
                   <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
-                  <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>
+                  <button onClick={this.deleteTrip.bind(this)} className="btn btn-danger">Delete Trip</button>
+                
                 </div>
                 <iframe width="800" height="650" frameBorder="0" style={{border:0}}
                   src={url} allowFullScreen title="map"></iframe>
