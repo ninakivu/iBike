@@ -1,7 +1,7 @@
 import React from 'react'
 import EditTrip from '../EditTrip/EditTrip'
-import Map from '../Map/Map.js'
 import clientAuth from '../../clientAuth'
+
 
 class TripDetail extends React.Component {
 
@@ -40,6 +40,7 @@ class TripDetail extends React.Component {
     })
   }
 
+
   render() {
     const { trip } = this.state
     
@@ -49,7 +50,9 @@ class TripDetail extends React.Component {
     &origin=${this.state.trip.start}
     &destination=${this.state.trip.end}
     &mode=bicycling`
+    
     return (
+      
       <div className="container">
         <div className="trip-container">
           {this.state.show
@@ -61,11 +64,7 @@ class TripDetail extends React.Component {
                 <h1>{trip.name}</h1>
                 <h4>From: {trip.start}</h4>
                 <h4>To: {trip.end}</h4>
-                <h4>Distance: "from a to b" miles.</h4>
-                <h4>Gas saved: "distance" * 1/23 gallons.</h4>
-                <h4>Money saved: "gas saved * gas price" dollars.</h4>
-                <h4>CO2 saved: "distance" * 411 grams.</h4>
-                <h4>Calories burned: "distance" * 31 kcal</h4>
+                
                 <div className="button-container">
                   <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
                   <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>

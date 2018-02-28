@@ -56,9 +56,7 @@ class App extends Component {
   }
   
   addTrip(fields) {
-    console.log("CREATING A TRIP")
-    console.log(fields)
-    axios({method: 'post', url: '/trips', data: fields})
+    clientAuth.createTrip({method: 'post', url: '/trips', data: fields})
       .then((res) => {
         console.log(res.data)
         this.setState({

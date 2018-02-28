@@ -26,8 +26,6 @@ class UserDetail extends React.Component {
           <h1>{user.name}</h1>
           <h3>E-mail: {user.email}</h3>
         </div>
-        <button className="btn btn-primary">Edit Profile</button>
-        <button className="btn btn-danger">Delete Profile</button>
 
         <h3>My Trips:</h3>
         <ul>{user.trips.map((t) => {

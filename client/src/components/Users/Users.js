@@ -10,7 +10,6 @@ class Users extends React.Component {
 
   componentDidMount() {
     clientAuth.getUsers().then(res => {
-      console.log(res.data)
       this.setState({
         users: res.data.reverse()
       })
