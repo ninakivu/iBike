@@ -60,7 +60,7 @@ class TripDetail extends React.Component {
               <EditTrip trip={trip} onUpdateTrip={this.onTripUpdate.bind(this)} />
             )
             : (
-              <div>
+              <div class="jumbotron jumbotron-fluid bikecalc" text="center">
                 <h1>{trip.name}</h1>
                 <h4>From: {trip.start}</h4>
                 <h4>To: {trip.end}</h4>
