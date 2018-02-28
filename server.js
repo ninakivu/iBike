@@ -28,8 +28,8 @@ app.get('/api', (req, res) => {
 //   res.json(users)
 // })
 
-app.use('/users', usersRoutes)
-app.use('/trips', tripsRoutes)
+app.use('/api/users', usersRoutes)
+app.use('/api/trips', tripsRoutes)
 
 app.use('*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)

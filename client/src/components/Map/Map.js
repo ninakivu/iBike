@@ -13,7 +13,7 @@ export default class Map extends Component {
 render() {
     return (
       <div className='google-map'>
-        <GoogleMapReact
+        {/*<GoogleMapReact
           defaultCenter={ this.props.center }
           defaultZoom={ this.props.zoom }>
           <AnyReactComponent
@@ -21,7 +21,9 @@ render() {
             lng={ -73.8517440 }
             text={ "Map" }
           />
-        </GoogleMapReact>
+        </GoogleMapReact>*/}
+
+        
       </div>
     )
   }

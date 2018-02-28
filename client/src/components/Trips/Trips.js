@@ -1,10 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import clientAuth from '../../clientAuth';
 
 class Trips extends React.Component {
 
+  state = {
+    trips: []
+  }
+
+  componentDidMount() {
+    clientAuth.getTrips().then(res => {
+      this.setState({
+        trips: res.data.reverse()
+      })
+    })
+  }
+
   render() {
-    const { trips } = this.props
+    const { trips } = this.state
     console.log(trips)
     return (
       <div>

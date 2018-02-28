@@ -119,10 +119,7 @@ class App extends Component {
 
           <Route exact path="/users/:id" render={(routeProps) => {
             const userId = routeProps.match.params.id
-            const user = users.find((u) => {
-              return u._id === userId
-            })
-            return <UserDetail user={user} />
+            return <UserDetail userId={userId} />
           }} />
 
           <Route exact path="/trips/:id" render={(routeProps) => {

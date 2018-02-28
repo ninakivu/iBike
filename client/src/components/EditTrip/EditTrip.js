@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import clientAuth from '../../clientAuth.js'
 
 class EditTrip extends React.Component {
   constructor(props) {
@@ -7,13 +7,16 @@ class EditTrip extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit = (event) => {
+  handleSubmit(event) {
     event.preventDefault() 
     const fields = {
       name: this.refs.name.value,
       start: this.refs.start.value,
       end: this.refs.end.value
     }
+    clientAuth.updateTrip(this.state.tripBeingEdited, fields).then(res => {
+      console.log(res.data)
+    })
     return this.props.onSubmit(fields)
   }
   

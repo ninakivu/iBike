@@ -1,4 +1,5 @@
 const User = require('../models/User.js')
+const Trip = require('../models/Trip.js')
 const signToken = require('../serverAuth.js').signToken
 
 module.exports = {
@@ -14,7 +15,10 @@ module.exports = {
     console.log("Current User:")
     console.log(req.user)
     User.findById(req.params.id, (err, user) => {
-      res.json(user)
+      Trip.find({by: user}, (err, trips) => {
+        const userData = user.toObject() 
+        res.json({...userData, trips})
+      })
     })
   },
 

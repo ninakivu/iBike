@@ -21,6 +21,7 @@ class LogIn extends React.Component {
 			this.setState({ fields: { email: '', password: '' } })
 			if(user) {
 				this.props.onLoginSuccess(user)
+				// this programatically redirects you to / after successful
 				this.props.history.push('/')
 			}
 		})

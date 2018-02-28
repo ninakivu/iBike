@@ -21,7 +21,7 @@ function getCurrentUser() {
 }
 
 function logIn(credentials) {
-	return clientAuth({ method: 'post', url: '/users/authenticate', data: credentials })
+	return clientAuth({ method: 'post', url: '/api/users/authenticate', data: credentials })
 		.then(res => {
 			const token = res.data.token
 			if(token) {
@@ -36,7 +36,7 @@ function logIn(credentials) {
 
 // logIn and signUp functions could be combined into one:
 function signUp(userInfo) {
-	return clientAuth({ method: 'post', url: '/users', data: userInfo})
+	return clientAuth({ method: 'post', url: '/api/users', data: userInfo})
 		.then(res => {
 			const token = res.data.token
 			if(token) {
@@ -55,15 +55,45 @@ function logOut() {
 	return true
 }
 
-function deleteTrip(id) {
-	return clientAuth({method: 'delete', url: `/trips/${id}`})
+function getTrips() {
+	return clientAuth({ method: 'get', url: '/api/trips' })
 }
 
+function createTrip(fields) {
+	return clientAuth({ method: 'post', url: '/api/trips', data: fields })
+}
+
+function updateTrip(fields) {
+	return clientAuth({ method: 'patch', url: '/api/trips/:id', data: fields })
+}
+
+function deleteTrip(id) {
+	return clientAuth({ method: 'delete', url: `/api/trips/${id}` })
+}
+
+function getUsers() {
+	return clientAuth({ method: 'get', url: '/api/users' })
+}
+
+function getUserDetails(id) {
+	return clientAuth({ method: 'get', url: `/api/users/${id}` })
+}
+
+function getTripDetails(id) {
+	return clientAuth({ method: 'get', url: `/api/trips/${id}` })
+}
+	
 
 export default {
 	getCurrentUser,
 	logIn,
 	signUp,
 	logOut,
-	deleteTrip
+	getTrips,
+	createTrip,
+	updateTrip,
+	deleteTrip,
+	getUsers,
+	getUserDetails,
+	getTripDetails
 }

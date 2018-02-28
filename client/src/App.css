@@ -42,11 +42,23 @@
   margin-right: 26px;
   display: inline-flex;
   border: 2px solid black;
-  border-radius: 75%
+  border-radius: 75%;
+  align-items: center;
+  text-align: center;
+  background: url("assets/profile.svg") center center;
+  background-size: 90%;
+    -moz-background-size: 90%;
+    -webkit-background-size: 90%;
+    -o-background-size: 90%;
+    color: #FFF;    
+    overflow: hidden;
+    background-position: center
 }
 
-.usersname {
-  text-align: center
+.users-name :hover {
+  text-align: center;
+  margin: 0;
+  color: white
 }
 
 .card {
@@ -59,7 +71,7 @@
 }
 
 .jumbotron {
-  background: url("assets/bike-photos/9.jpg") no-repeat center center;
+  background: url("assets/bike-photos/7.jpg") no-repeat center center;
   background-size: 100%;
     -moz-background-size: 100%;
     -webkit-background-size: 100%;
@@ -69,4 +81,23 @@
     background-size: cover;
     background-position: center;
     
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/gotham'); 
+  
+  /* IE9 Compat Modes */
+  src: local('Gotham'),
+       url('/fonts/gotham/Gotham-Medium.eot?#iefix') format('otf'), /* IE6-IE8 */
+       url('/fonts/gotham/Gotham-Medium.woff2') format('otf'), /* Super Modern Browsers */
+       url('/fonts/gotham/Gotham-Medium.woff') format('otf'), /* Modern Browsers */
+       url('/fonts/gotham/Gotham-Medium.ttf') format('otf'), /* Safari, Android, iOS */
+       url('/fonts/gotham/Gotham-Medium.svg#OpenSans') format('otf'); /* Legacy iOS */
+}
+
+body {
+  font-family: 'Gotham';
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import clientAuth from '../../clientAuth'
+
 
 class AddTrip extends Component {
   constructor(props) {
@@ -16,11 +18,17 @@ class AddTrip extends Component {
     const fields = {
       name: this.refs.name.value,
       start: this.refs.start.value,
-      end: this.refs.end.value,
-      
+      end: this.refs.end.value 
     }
-    this.props.onSubmit(fields)
+    clientAuth.createTrip(fields).then((res) => {
+      if(res.data.success) {
+        this.setState({
+          trips: [...this.state.trips, res.data.newTrip]
+        })
+      }
+    })
   }
+
   render() {
     return (
       <div className="container">

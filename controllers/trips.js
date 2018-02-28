@@ -3,7 +3,7 @@ const Trip = require('../models/Trip.js')
 module.exports = {
   // list all trips
   index: (req, res) => {
-    Trip.find({by: req.user._id}).populate('by').exec((err, trips) => {
+    Trip.find({}).populate('by').exec((err, trips) => {
       res.json(trips)
     })
   },

@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import EditTrip from '../EditTrip/EditTrip'
 import Map from '../Map/Map.js'
-import clientAuth from '../../clientAuth.js'
+import clientAuth from '../../clientAuth'
 
 class TripDetail extends React.Component {
 
@@ -12,8 +11,7 @@ class TripDetail extends React.Component {
   }
 
   componentDidMount = () => {
-    axios.get(`/trips/${this.props.tripId}`)
-    .then((res) => {
+    clientAuth.getTripDetails(this.props.tripId).then((res) => {
       this.setState({
         trip: res.data
       })
@@ -21,7 +19,7 @@ class TripDetail extends React.Component {
   }
 
   onSubmit = (fields) => {
-    axios({method: 'patch', url: `/trips/${this.state.trip._id}`, data: fields})
+    clientAuth({method: 'patch', url: `/trips/${this.state.trip._id}`, data: fields})
     .then((res) => {
       console.log(res)
       this.setState({
@@ -48,6 +46,10 @@ class TripDetail extends React.Component {
 
   render() {
     const { trip } = this.state
+    let url = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyCbnxbyHE6NrhjozodTbi42aA_NXSRuHMs
+    &origin=${this.state.trip.start}
+    &destination=${this.state.trip.end}
+    &mode=bicycling`
     return (
       <div className="container">
         <div className="trip-container">
@@ -64,6 +66,8 @@ class TripDetail extends React.Component {
           <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
           <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>
         </div>
+        <iframe width="800" height="650" frameBorder="0" style={{border:0}}
+          src={url} allowFullScreen></iframe>
         <Map />
         {this.state.show && <EditTrip trip={trip} onSubmit={this.onSubmit} />}  
       </div>
