@@ -14,10 +14,13 @@ class EditTrip extends React.Component {
       start: this.refs.start.value,
       end: this.refs.end.value
     }
-    clientAuth.updateTrip(this.state.tripBeingEdited, fields).then(res => {
-      console.log(res.data)
+    clientAuth.updateTrip(this.props.trip._id, fields).then(res => {
+      console.log()
+
+      if(res.data.success) {
+        this.props.onUpdateTrip(res.data.updatedTrip)
+      }
     })
-    return this.props.onSubmit(fields)
   }
   
   render() {

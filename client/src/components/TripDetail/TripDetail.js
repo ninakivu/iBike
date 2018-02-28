@@ -7,7 +7,7 @@ class TripDetail extends React.Component {
 
   state = {
     show: false,
-    trip: []
+    trip: null
   }
 
   componentDidMount = () => {
@@ -18,14 +18,10 @@ class TripDetail extends React.Component {
     })
   }
 
-  onSubmit = (fields) => {
-    clientAuth({method: 'patch', url: `/trips/${this.state.trip._id}`, data: fields})
-    .then((res) => {
-      console.log(res)
-      this.setState({
-        trip: res.data.updatedTrip,
-        show: false
-      })
+  onTripUpdate = (updatedTrip) => {
+    this.setState({
+      trip: updatedTrip,
+      show: false
     })
   }
 
@@ -46,6 +42,9 @@ class TripDetail extends React.Component {
 
   render() {
     const { trip } = this.state
+    
+    if(!trip) return <h1>Loading...</h1>
+    
     let url = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyCbnxbyHE6NrhjozodTbi42aA_NXSRuHMs
     &origin=${this.state.trip.start}
     &destination=${this.state.trip.end}
@@ -53,23 +52,30 @@ class TripDetail extends React.Component {
     return (
       <div className="container">
         <div className="trip-container">
-          <h1>{trip.name}</h1>
-          <h4>From: {trip.start}</h4>
-          <h4>To: {trip.end}</h4>
-          <h4>Distance: "from a to b" miles.</h4>
-          <h4>Gas saved: "distance" * 1/23 gallons.</h4>
-          <h4>Money saved: "gas saved * gas price" dollars.</h4>
-          <h4>CO2 saved: "distance" * 411 grams.</h4>
-          <h4>Calories burned: "distance" * 31 kcal</h4>
+          {this.state.show
+            ? (
+              <EditTrip trip={trip} onUpdateTrip={this.onTripUpdate.bind(this)} />
+            )
+            : (
+              <div>
+                <h1>{trip.name}</h1>
+                <h4>From: {trip.start}</h4>
+                <h4>To: {trip.end}</h4>
+                <h4>Distance: "from a to b" miles.</h4>
+                <h4>Gas saved: "distance" * 1/23 gallons.</h4>
+                <h4>Money saved: "gas saved * gas price" dollars.</h4>
+                <h4>CO2 saved: "distance" * 411 grams.</h4>
+                <h4>Calories burned: "distance" * 31 kcal</h4>
+                <div className="button-container">
+                  <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
+                  <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>
+                </div>
+                <iframe width="800" height="650" frameBorder="0" style={{border:0}}
+                  src={url} allowFullScreen title="map"></iframe>
+              </div>
+            )
+          }
         </div>
-        <div className="button-container">
-          <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
-          <button onClick={this.deleteTrip.bind(this)} className="btn btn-primary">Delete Trip</button>
-        </div>
-        <iframe width="800" height="650" frameBorder="0" style={{border:0}}
-          src={url} allowFullScreen></iframe>
-        <Map />
-        {this.state.show && <EditTrip trip={trip} onSubmit={this.onSubmit} />}  
       </div>
     )
   }

@@ -63,8 +63,8 @@ function createTrip(fields) {
 	return clientAuth({ method: 'post', url: '/api/trips', data: fields })
 }
 
-function updateTrip(fields) {
-	return clientAuth({ method: 'patch', url: '/api/trips/:id', data: fields })
+function updateTrip(id, fields) {
+	return clientAuth({ method: 'patch', url: `/api/trips/${id}`, data: fields })
 }
 
 function deleteTrip(id) {

@@ -8,7 +8,6 @@ import NavBar from './components/NavBar/NavBar.js'
 import LogIn from './views/LogIn.jsx'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import Home from './views/Home'
 
 import UserDetail from './components/UserDetail/UserDetail.js'
 import Users from './components/Users/Users.js'
