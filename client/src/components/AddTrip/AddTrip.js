@@ -22,9 +22,10 @@ class AddTrip extends Component {
     }
     clientAuth.createTrip(fields).then((res) => {
       if(res.data.success) {
-        this.setState({
-          trips: [...this.state.trips, res.data.newTrip]
-        })
+        // this.setState({
+        //   trips: [...this.state.trips, res.data.newTrip]
+        // })
+        this.props.onSubmit(res.data.newTrip)
       }
     })
   }

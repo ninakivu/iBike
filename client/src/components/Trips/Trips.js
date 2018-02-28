@@ -8,20 +8,21 @@ class Trips extends React.Component {
     console.log('the trips', props.trips)
   }
 
-  state = {
-    trips: []
-  }
+  // state = {
+  //   trips: []
+  // }
 
-  componentDidMount() {
-    clientAuth.getTrips().then(res => {
-      this.setState({
-        trips: res.data.reverse()
-      })
-    })
-  }
+  // componentDidMount() {
+  //   clientAuth.getTrips().then(res => {
+  //     this.setState({
+  //       trips: res.data.reverse()
+  //     })
+  //   })
+  // }
 
   render() {
-    const { trips } = this.state
+    // const { trips } = this.state
+    const trips = this.props.trips
     console.log(trips)
     return (
       <div>

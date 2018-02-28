@@ -30,14 +30,15 @@ class App extends Component {
     this.setState({
       currentUser: clientAuth.getCurrentUser()
     })
-    axios({method: 'get', url: '/users'})
+    axios({method: 'get', url: '/api/users'})
     .then((res) => { 
       this.setState({
         users: res.data
       })
     })
-    axios({method: 'get', url: '/trips'})
+    axios({method: 'get', url: '/api/trips'})
     .then((res) => { 
+      console.log(res.data)
       this.setState({
         trips: res.data
        })
@@ -56,13 +57,9 @@ class App extends Component {
   }
   
   addTrip(fields) {
-    clientAuth.createTrip({method: 'post', url: '/trips', data: fields})
-      .then((res) => {
-        console.log(res.data)
         this.setState({
-          trips: [...this.state.trips, res.data.newTrip]
+          trips: ([...this.state.trips, fields]).reverse()
         })
-      })
   }
 
   toggleTrip = () => {
@@ -73,6 +70,7 @@ class App extends Component {
   }
 
   onTripDeleteSuccess(deletedTripId) {
+    console.log(this.state)
     this.setState({
       trips: this.state.trips.filter(t => {
         return t._id !== deletedTripId

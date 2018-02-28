@@ -24,7 +24,7 @@ class Users extends React.Component {
           return (
             <div className="users" key={u._id} >
               <div className="profile-circle"></div>
-              <p className="users-name"><Link to={`/users/${u._id}`}>{u.name}</Link></p>
+              <p className="users-name text-center"><Link to={`/users/${u._id}`}>{u.name}</Link></p>
             </div>
           )
         })}
