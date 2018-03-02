@@ -53,27 +53,31 @@ class TripDetail extends React.Component {
     
     return (
       
-      <div className="container">
+      <div>
         <div className="trip-container">
           {this.state.show
             ? (
               <EditTrip trip={trip} onUpdateTrip={this.onTripUpdate.bind(this)} />
             )
             : (
-              <div class="jumbotron jumbotron-fluid bikecalc" text="center">
+              <div className="evenly-distributed">
+              <div className="jumbotron jumbotron-fluid white inline" text="center">
                 <h1>{trip.name}</h1>
-                <h4>From: {trip.start}</h4>
-                <h4>To: {trip.end}</h4>
+                <h4><b>From: </b>{trip.start}</h4>
+                <h4><b>To: </b>{trip.end}</h4>
                 <BikeCalc />
-         
-                
+    
                 <div className="button-container">
                   <button onClick={this.editTrip.bind(this)} className="btn btn-primary">Edit Trip</button>
                   <button onClick={this.deleteTrip.bind(this)} className="btn btn-danger">Delete Trip</button>
-                
+                  <hr />
                 </div>
-                <iframe width="800" height="650" frameBorder="0" style={{border:0}}
-                  src={url} allowFullScreen title="map"></iframe>
+              </div>
+              
+                <div className="iframe white jumbotron jumbotron-fluid">
+                <iframe className="iframe" frameBorder="0" style={{border:0}}
+                  src={url} title="map" allowFullScreen width="100%" height="100%"></iframe>
+                </div>
               </div>
             )
           }

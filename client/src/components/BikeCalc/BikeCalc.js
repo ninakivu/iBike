@@ -30,13 +30,13 @@ class BikeCalc extends React.Component {
     return (
       <div>
           <form onSubmit={this.updateDistance.bind(this)}>
-          <input type="text" className="form-control col-3" id="exampleInputDistance" ref="distance" placeholder="enter approx. distance"/>
+          <input type="text" className="form-control col-8" id="exampleInputDistance" ref="distance" placeholder="enter distance"/>
         {this.updateDistance.bind(this)}</form> 
-        <h4>Distance: { distance } miles</h4>
-        <h4>Gas saved: {gas} gallons</h4>
-        <h4>Money saved: ${money} </h4>
-        <h4>CO2 saved: {CO2} grams</h4>
-        <h4>Calories burned: {kcal} kcal</h4>
+        <h4><b>Distance: </b>{ distance } miles</h4>
+        <h4><b>Gas saved: </b>{gas} gallons</h4>
+        <h4><b>Money saved: </b>${money} </h4>
+        <h4><b>CO2 saved: </b>{CO2} grams</h4>
+        <h4><b>Calories burned: </b>{kcal} kcal</h4>
       </div>
     )
   }

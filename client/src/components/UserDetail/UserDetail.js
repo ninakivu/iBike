@@ -21,25 +21,27 @@ class UserDetail extends React.Component {
     const { user } = this.state
     if(!user) return <h1>Loading...</h1>
     return (
-      <div>
-        <div>
-          <h1>{user.name}</h1>
+      <div className="evenly-distributed">
+        <div className="jumbotron jumbotron-fluid white inline">
+          <h2>{user.name}</h2>
           <h3>E-mail: {user.email}</h3>
         </div>
 
-        <h3>My Trips:</h3>
-        {user.trips.map((t) => {
-          return (
-            <div className="card" key={t._id} style={{width: 22 +"em"}}>
-              <div className="card-body"> 
-                <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
-                <p className="card-text">From: {t.start}</p>
-                <p className="card-text">To: {t.end}</p>
-                <Link to={`/trips/${t._id}`} className="btn btn-primary">More</Link>
+        <div>
+          <h3>My Trips:</h3>
+          {user.trips.map((t) => {
+            return (
+              <div className="card" key={t._id} style={{width: 22 +"em"}}>
+                <div className="card-body"> 
+                  <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
+                  <p className="card-text">From: {t.start}</p>
+                  <p className="card-text">To: {t.end}</p>
+                  <Link to={`/trips/${t._id}`} className="btn btn-primary">More</Link>
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     )
   }

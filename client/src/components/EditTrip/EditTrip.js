@@ -26,7 +26,7 @@ class EditTrip extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
+        <div className="form-group white">
           <label htmlFor="exampleInputName">Trip name</label>
           <input type="tripname" className="form-control" id="exampleInputName" ref="name" aria-describedby="nameHelp" defaultValue={this.props.trip.name}/>
         </div>

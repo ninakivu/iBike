@@ -25,7 +25,7 @@ class Trips extends React.Component {
     const trips = this.props.trips
     console.log(trips)
     return (
-      <div>
+      <div className="evenly-distributed center">
         <ul>
           {trips.map((t) => {
             console.log(t)
