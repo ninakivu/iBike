@@ -6,7 +6,7 @@ const
   bodyParser = require('body-parser')
   mongoose = require('mongoose')
   MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/ibike'
-  // PORT = process.env.PORT || 3001
+  PORT = process.env.PORT || 3001
   usersRoutes = require('./routes/users.js')
   tripsRoutes = require('./routes/trips.js')
   

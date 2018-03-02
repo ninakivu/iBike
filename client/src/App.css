@@ -55,7 +55,7 @@
 }
 
 .tripbtn {
-  background: url("assets/bike-photos/9.jpg") no-repeat center center;
+  background: linear-gradient( transparent, #7d7d7d), url("assets/bike-photos/9.jpg") no-repeat center center;
     height: 25%;
     padding-top: 25%;
     color: #FFF;    
@@ -123,4 +123,5 @@ b {
 p {
   font-weight: lighter
 }
+
 
