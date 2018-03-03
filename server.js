@@ -35,6 +35,6 @@ app.use('*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
-app.listen(PORT, (err) => {
-  console.log(err || 'Server running on port ${PORT}')
+var server = app.listen(PORT, (err) => {
+  console.log(err || `Server running on port ${PORT}`)
 })
