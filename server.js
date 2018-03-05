@@ -5,14 +5,14 @@ const
   logger = require('morgan')
   bodyParser = require('body-parser')
   mongoose = require('mongoose')
-  MONGODB_URI = 'mongodb://localhost/ibike'
+  // MONGODB_URI = 'mongodb://localhost/ibike'
   PORT = process.env.PORT || 3001
   usersRoutes = require('./routes/users.js')
   tripsRoutes = require('./routes/trips.js')
   
 
 // connect ot db:
-mongoose.connect(MONGODB_URI, (err) => {
+mongoose.connect(process.env.MONGODB_URI, (err) => {
   console.log(err || 'Connected to MongoDB.')
 })
 
