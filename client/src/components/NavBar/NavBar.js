@@ -34,7 +34,7 @@ class NavBar extends React.Component {
                 )
                 : (
                   <span>
-                    <Link to={'/login'} className="nav-link"> Sign In </Link>
+                    <Link to={'/login'} className="nav-link"> Log In </Link>
                     <Link to={'/signup'} className="nav-link"> Sign Up </Link>
                   </span>
                 )
