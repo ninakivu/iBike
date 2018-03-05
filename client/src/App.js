@@ -105,16 +105,31 @@ class App extends Component {
 					}} />
 
           <Route exact path="/users" render={() => {
-            return <Users users={users} />
+            if(!currentUser) {
+              return <Redirect to="/signup" />
+            } else {
+              return <Users users={users} />
+            }
+            
           }} />
 
           <Route exact path="/trips" render={(routeProps) => {
-            return <Trips trips={trips} />
+            if(!currentUser) {
+              return <Redirect to="/signup" />
+            } else {
+              return <Trips trips={trips} />
+            }
+            
           }} />
 
           <Route exact path="/users/:id" render={(routeProps) => {
             const userId = routeProps.match.params.id
-            return <UserDetail userId={userId} />
+            if(!currentUser) {
+              return <Redirect to="/signup" />
+            } else {
+              return <UserDetail userId={userId} />
+            }
+            
           }} />
 
           <Route exact path="/trips/:id" render={(routeProps) => {
