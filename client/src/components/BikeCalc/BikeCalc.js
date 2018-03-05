@@ -17,10 +17,10 @@ class BikeCalc extends React.Component {
     console.log(this)
     this.setState({
       distance: Number(this.refs.distance.value),
-      gas: Number(this.refs.distance.value) * 1/23,
-      money: Number(this.refs.distance.value) * 0.1 ,
-      CO2: Number(this.refs.distance.value) * 411,
-      kcal: Number(this.refs.distance.value) * 31
+      gas: (Number(this.refs.distance.value) * 1/23).toFixed(2),
+      money:( Number(this.refs.distance.value) * 0.1).toFixed(2) ,
+      CO2: (Number(this.refs.distance.value) * 411).toFixed(2),
+      kcal: (Number(this.refs.distance.value) * 31).toFixed(2)
     })
   }
 
