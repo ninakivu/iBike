@@ -27,8 +27,8 @@ class UserDetail extends React.Component {
           <h3>E-mail: {user.email}</h3>
         </div>
 
-        <div>
-          <h3>My Trips:</h3>
+        <div className="evenly-distributed">
+          <h3>Trips:</h3>
           {user.trips.map((t) => {
             return (
               <div className="card" key={t._id} style={{width: 22 +"em"}}>

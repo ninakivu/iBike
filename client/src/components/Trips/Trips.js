@@ -32,7 +32,7 @@ class Trips extends React.Component {
             return (
               <div className="card" key={t._id} style={{width: 22 +"em"}}>
                 <div className="card-body"> 
-                  <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
+                  <h4 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h4>
                   <p className="card-text">By: <Link to={`/users/${t.by._id}`}>{t.by.name}</Link></p>
                   
                   <p className="card-text">From: {t.start}</p>

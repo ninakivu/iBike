@@ -57,9 +57,9 @@ class App extends Component {
   }
   
   addTrip(fields) {
-        this.setState({
-          trips: ([...this.state.trips, fields]).reverse()
-        })
+    this.setState({
+      trips: ([...this.state.trips, fields]).reverse()
+    })
   }
 
   toggleTrip = () => {
@@ -85,9 +85,7 @@ class App extends Component {
       
         <NavBar currentUser={ currentUser }/>
         
-        {currentUser !== [] ? <TripButton label={showTripForm ? "Cancel Trip" : "Start a New Trip"} onClick={this.toggleTrip.bind(this)} /> : null }
-
-        { showTripForm ? <AddTrip onSubmit={this.addTrip.bind(this)} /> : null }
+        
        
         <Switch>
 
@@ -122,6 +120,17 @@ class App extends Component {
             
           }} />
 
+
+          <Route exact path={`/users/${currentUser && currentUser._id}`} render={(routeProps) => {
+            const userId = currentUser._id
+            if(!currentUser) {
+              return <Redirect to="/signup" />
+            } else {
+              return <UserDetail userId={userId} />
+            }
+            
+          }} />
+
           <Route exact path="/users/:id" render={(routeProps) => {
             const userId = routeProps.match.params.id
             if(!currentUser) {
@@ -131,6 +140,7 @@ class App extends Component {
             }
             
           }} />
+
 
           <Route exact path="/trips/:id" render={(routeProps) => {
             const tripId = routeProps.match.params.id
@@ -149,6 +159,10 @@ class App extends Component {
           }} />
          
         </ Switch>
+
+        { currentUser ? <TripButton label={showTripForm ? "Cancel Trip" : "Start a New Trip"} onClick={this.toggleTrip.bind(this)} /> : null }
+
+        { showTripForm ? <AddTrip onSubmit={this.addTrip.bind(this)} /> : null }
 
 
 
