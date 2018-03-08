@@ -13,7 +13,8 @@
 .card {
   display: inline-flex;
   margin: 20px;
-  border-radius: 5%
+  border-radius: 5%;
+  text-align: center
 }
 
 .users {
@@ -79,7 +80,8 @@
 
 body {
   font-family: 'Gotham';
-  background-color: #f0f0f2  
+  background-color: #f0f0f2;
+  align-items: center
 }
 
 a {
@@ -93,7 +95,8 @@ a :hover {
 
 .evenly-distributed {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  align-items: center
 }
 
 .center {
@@ -127,4 +130,8 @@ p {
 
 .SignUp {
   text-align: center
+}
+
+.navbar {
+  border-radius: 0
 }

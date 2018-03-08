@@ -81,7 +81,7 @@ class App extends Component {
   render() {
     const { loggedIn, currentUser, users, trips, showTripForm } = this.state
     return (
-      <div className="container">
+      <div className="container-fluid">
       
         <NavBar currentUser={ currentUser }/>
         
