@@ -21,13 +21,13 @@ class UserDetail extends React.Component {
     const { user } = this.state
     if(!user) return <h1>Loading...</h1>
     return (
-      <div className="evenly-distributed">
+      <div className="tripsdiv">
         <div className="jumbotron jumbotron-fluid white inline">
           <h2>{user.name}</h2>
-          <h3>E-mail: {user.email}</h3>
+          <h4>E-mail: {user.email}</h4>
         </div>
 
-        <div className="evenly-distributed">
+        <div>
           <h3>Trips:</h3>
           {user.trips.map((t) => {
             return (

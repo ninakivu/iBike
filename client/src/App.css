@@ -24,21 +24,17 @@
   display: inline-flex;
   border-radius: 75%;
   align-items: center;
-  text-align: center;
-  background-color: #D3D3D3;
-  background-size: 90%;
-    -moz-background-size: 90%;
-    -webkit-background-size: 90%;
-    -o-background-size: 90%;
-    color: #FFF;    
-    overflow: hidden;
-    background-position: center
+  text-align: center  !important;
+  background-color: #D3D3D3
 }
 
 .users-name :hover {
-  text-align: center;
-  margin: 0;
   color: white
+}
+
+.users-name {
+  margin: 10px;
+  text-align: center  !important
 }
 
 .t-container {
@@ -103,7 +99,7 @@ a :hover {
 .center {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center
 }
 
 .iframe {
@@ -125,3 +121,10 @@ p {
 }
 
 
+.tripsdiv {
+  margin: 5px;
+}
+
+.SignUp {
+  text-align: center
+}
