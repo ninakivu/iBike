@@ -49,7 +49,7 @@ class TripDetail extends React.Component {
     let url = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyCbnxbyHE6NrhjozodTbi42aA_NXSRuHMs
     &origin=${this.state.trip.start}
     &destination=${this.state.trip.end}
-    &mode=bicycling`
+    &mode=${this.state.trip.mode}`
     
     return (
       
@@ -65,6 +65,7 @@ class TripDetail extends React.Component {
                 <h1>{trip.name}</h1>
                 <h4><b>From: </b>{trip.start}</h4>
                 <h4><b>To: </b>{trip.end}</h4>
+                <h4><b>Mode: </b>{trip.mode}</h4>
                 <BikeCalc />
     
                 <div className="button-container">
