@@ -1,7 +1,7 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) WDI Project 4: MERN Stack - 'iBike'
 
 
-**[https://iBike.herokuapp.com/](https://iBike.herokuapp.com/)**
+**[https://project4-ibike.herokuapp.com](https://project4-ibike.herokuapp.com/)**
 
 ![Landing Page](readme/images/screenshot1.jpg)
 
