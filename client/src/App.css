@@ -12,6 +12,7 @@
 
 .card {
   display: inline-flex;
+  width: 18rem;
   margin: 20px;
   border-radius: 5%;
   text-align: center
@@ -20,7 +21,7 @@
 .users {
   width: 100px;
   height: 100px;
-  margin-top: 52px;
+  margin-top: 20px;
   margin-right: 26px;
   display: inline-flex;
   border-radius: 75%;

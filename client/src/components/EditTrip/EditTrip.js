@@ -37,6 +37,12 @@ class EditTrip extends React.Component {
         <div className="form-group">
         <label htmlFor="exampleInputEnd">End point:</label>
         <input type="end" className="form-control" id="exampleInputEnd" ref="end" defaultValue={this.props.trip.end}/>
+        <label htmlFor="exampleFormControlSelect1" ref={this.state.mode}>Mode: </label>
+        <select className="form-control column column-33 column-offset-33" ref="mode" id="exampleFormControlSelect1" defaultValue="bicycling">
+          <option value="walking">Walk</option>
+          <option value="bicycling">Bike</option>
+          <option value="driving">Car share</option>
+        </select>
       </div>
         <button type="submit" className="btn btn-primary">Save changes</button>
       </form>

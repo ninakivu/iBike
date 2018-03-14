@@ -23,15 +23,15 @@ class UserDetail extends React.Component {
     return (
       <div className="tripsdiv">
         <div className="jumbotron jumbotron-fluid white inline">
-          <h2>{user.name}</h2>
+          <h2>Welcome, {user.name}</h2>
           <h4>E-mail: {user.email}</h4>
         </div>
 
         <div>
-          <h3>Trips:</h3>
+          <h3>My Trips:</h3>
           {user.trips.map((t) => {
             return (
-              <div className="card" key={t._id} style={{width: 22 +"em"}}>
+              <div className="card" key={t._id}>
                 <div className="card-body"> 
                   <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
                   <p className="card-text">From: {t.start}</p>

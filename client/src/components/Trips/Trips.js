@@ -25,12 +25,12 @@ class Trips extends React.Component {
     const trips = this.props.trips.reverse()
     console.log(trips)
     return (
-      <div className="evenly-distributed center">
+      <div className="row align-items-center">
         <ul>
           {trips.map((t) => {
             console.log(t)
             return (
-              <div className="card" key={t._id}>
+              <div className="card align-items-center" key={t._id}>
                 <div className="card-body"> 
                   <h4 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h4>
                   <p className="card-text">By: <Link to={`/users/${t.by._id}`}>{t.by.name}</Link></p>
