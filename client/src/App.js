@@ -82,11 +82,9 @@ class App extends Component {
     const { loggedIn, currentUser, users, trips, showTripForm } = this.state
     return (
       <div className="container-fluid">
-      
+  
         <NavBar currentUser={ currentUser }/>
-        
-        
-       
+   
         <Switch>
 
           <Route path="/login" render={(props) => {
