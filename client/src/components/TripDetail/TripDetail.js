@@ -60,8 +60,8 @@ class TripDetail extends React.Component {
               <EditTrip trip={trip} onUpdateTrip={this.onTripUpdate.bind(this)} />
             )
             : (
-              <div className="evenly-distributed">
-              <div className="jumbotron jumbotron-fluid white inline" text="center">
+              <div className="center">
+              <div className="jumbotron jumbotron-fluid white inline tripdetail" text="center">
                 <h1>{trip.name}</h1>
                 <h4><b>From: </b>{trip.start}</h4>
                 <h4><b>To: </b>{trip.end}</h4>
@@ -75,9 +75,9 @@ class TripDetail extends React.Component {
                 </div>
               </div>
               
-                <div className="iframe white jumbotron jumbotron-fluid">
-                <iframe className="iframe" frameBorder="0" style={{border:0}}
-                  src={url} title="map" allowFullScreen width="100%" height="100%"></iframe>
+                <div className=" jumbotron jumbotron-fluid white inline">
+                <iframe className="iframe" frameBorder="1" style={{border:0}}
+                  src={url} title="map" allowFullScreen></iframe>
                 </div>
               </div>
             )

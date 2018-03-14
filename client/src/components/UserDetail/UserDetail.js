@@ -23,8 +23,8 @@ class UserDetail extends React.Component {
     return (
       <div className="tripsdiv">
         <div className="jumbotron jumbotron-fluid white inline">
-          <h2>Welcome, {user.name}</h2>
-          <h4>E-mail: {user.email}</h4>
+          <h2>Welcome</h2> 
+          <h3>{user.name}</h3>
         </div>
 
         <div>
@@ -36,7 +36,7 @@ class UserDetail extends React.Component {
                   <h5 className="card-title trip-name"><Link to={`/trips/${t._id}`}>{t.name} </Link></h5>
                   <p className="card-text">From: {t.start}</p>
                   <p className="card-text">To: {t.end}</p>
-                  <Link to={`/trips/${t._id}`} className="btn btn-primary">More</Link>
+                  <Link to={`/trips/${t._id}`} className="btn btn-warning">More</Link>
                 </div>
               </div>
             )
